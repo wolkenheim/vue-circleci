@@ -66,11 +66,7 @@ jobs:
       - run:
           name: Deploy to S3
           command: |
-            if [ "${CIRCLE_BRANCH}" == "develop" ]; then
-                aws s3 sync dist s3://${AWS_BUCKET} --delete
-            elif [ "${CIRCLE_BRANCH}" == "master" ]; then
-                aws s3 sync dist s3://${AWS_BUCKET} --delete
-            fi
+              aws s3 sync dist s3://${AWS_BUCKET} --exclude=".git" --exclude=".circleci" --delete
 workflows:
   version: 2
   # The build and deploy workflow
