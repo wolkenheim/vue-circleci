@@ -31,22 +31,22 @@ jobs:
       # Lint the source code
       - run:
           name: Linting
-          command: npm run lint
+          # command: npm run lint
       # Test the source code
       - run:
           name: Testing
-          command: npm run test
+          # command: npm run test
       # Build project with different configuration based on
       # the current branch
       - run:
           name: Building
           command: |
             if [ "${CIRCLE_BRANCH}" == "staging" ]; then
-                npm run build-qa
+                npm run build
             elif [ "${CIRCLE_BRANCH}" == "master" ]; then
-                npm run build-prod
+                npm run build
             else
-                npm run build-dev
+                npm run build
             fi
       # Cache the dist folder for the deploy job
       - save_cache:
