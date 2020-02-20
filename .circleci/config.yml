@@ -8,7 +8,8 @@ jobs:
       - checkout
       - aws-cli/setup:
           profile-name: example
-      - run: aws s3 ls AWS_BUCKET
+      - run: echo s3://${AWS_BUCKET}
+      - run: aws s3 ls s3://${AWS_BUCKET}
   # The build job
   build:
     working_directory: ~/project
