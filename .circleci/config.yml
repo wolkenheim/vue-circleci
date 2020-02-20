@@ -1,0 +1,15 @@
+version: 2.1
+orbs:
+  aws-cli: circleci/aws-cli@0.1.20
+jobs:
+  build-docker:
+    docker:
+      - image: circleci/php:7.4-node-browsers
+      - checkout
+
+workflows:
+  version: 2
+  testing_and_docker:
+    jobs:
+      - build-docker
+
