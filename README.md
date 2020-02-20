@@ -37,7 +37,7 @@ Short version:
 - set up a new bucket with all "public access blocked" unchecked
 - add a policy for public read access (example given in the link above to the AWS docs)
 
-# Use custom bucket name as environment variable in circleci
+## Use custom bucket name as environment variable in circleci
 The AWS CLI S3 command needs to know the name of your bucket. You might not want to expose it in your source code. I set up an env variable called `AWS_BUCKET`. In a more sophisticated setup when you want to deploy to
 staging and master you could have two buckets and so to env variables e.g. AWS_BUCKET_PROD and AWS_BUCKET_STAGING. Then your .circleci/config.yaml can do the following
 ````
