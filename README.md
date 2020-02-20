@@ -3,6 +3,8 @@
 This is an example vue project to deploy a static website to AWS S3 via circleci. All the tutorials I found where
 outdated. So I set up this pipeline. 
 
+To setup circleci you need an account there and your project needs in its root folder a yaml file in the folder `.circleci/config.yml`
+
 So what should be happening? For a simple workflow that deploys the master branch of a git repository to one S3 bucket there needs to be 
 1) a build stage that compiles the dist folder with the static website and 
 2) a deploy stage that transfers everything to S3.
@@ -17,6 +19,7 @@ Stage two needs access to the files so you need the key "working_directory" and 
 AWS CLI ORB https://circleci.com/orbs/registry/orb/circleci/aws-cli Orbs are packages for circleci. It makes sense to use them as it saves
 a lot of tedious work of installing aws cli to you docker executor by yourself. All you need is to set up the env variables.
 
+So much for the CI config. Feel free to look around and adapt the config.yml to your needs. 
 ## Set up Environment variables for AWS CLI in circleci
 This one needs three environment variables. You need to set those in your Piplines Screen > Project Settings > Environment Variables. They need to be called exactly like that:
 
